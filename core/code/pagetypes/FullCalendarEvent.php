@@ -65,13 +65,6 @@ class FullCalendarEvent extends Page
                 ])
                 ->setDescription('Depending on the background colour, you may want to use black or white text'),
 
-            OptionsetField::create('IncludeOnCalendar', 'Include on calendar')
-                ->setDescription('Should this event be shown on the calendar')
-                ->setSource([
-                    true  => 'Yes',
-                    false => 'No',
-                ]),
-
             HtmlEditorField::create('ShortDescription', 'A short description')
                 ->setRows(1)
                 ->setDescription('Text shown when an event is first clicked on. Should be a quick description of the event. <strong>Limit 255 characters</strong>'),
@@ -95,6 +88,19 @@ class FullCalendarEvent extends Page
             'TextColor',
         ]);
     }
+
+    /**
+      * Called before the record is saved.
+      *
+      * @return void
+      */
+     public function onBeforeWrite()
+     {
+         parent::onBeforeWrite();
+
+         // Always include the event on the calendar.
+         $this->IncludeOnCalendar = true;
+     }
 }
 
 /**

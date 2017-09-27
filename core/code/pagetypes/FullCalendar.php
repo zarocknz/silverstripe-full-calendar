@@ -144,8 +144,9 @@ class FullCalendar_Controller extends Page_Controller
 	{
 		parent::init();
 
-		Requirements::block(THIRDPARTY_DIR . '/jquery/jquery.js');
-		Requirements::block(THIRDPARTY_DIR . '/jquery-ui/jquery-ui.js');
+		//++ @TODO this was preventing the calendar from outputting.
+		//++Requirements::block(THIRDPARTY_DIR . '/jquery/jquery.js');
+		//++Requirements::block(THIRDPARTY_DIR . '/jquery-ui/jquery-ui.js');
 
 		Requirements::javascript(FULL_CALENDAR . '/theme/dist/js/main.js');
 		Requirements::css(FULL_CALENDAR . '/theme/dist/css/main.css');

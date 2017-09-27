@@ -36,6 +36,15 @@ export default function () {
 			defaultView: json[0].view,
 			firstDay: json[0].firstDay,
 
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,listMonth'
+			},
+
+			// Limit the number of meetings displayed
+			eventLimit: 3,
+
 			// Events
 			events: json,
 			timeFormat: 'H:mm',
